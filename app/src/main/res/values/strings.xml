@@ -7,4 +7,8 @@
     <string name="nombre">Nombre y Apellido</string>
     <string name="correo">Correo</string>
     <string name="contrasenia_2">Confirmar Contraseña</string>
+    <string name="maquina_menu">MÁQUINAS</string>
+    <string name="historial_menu">HISTORIAL</string>
+    <string name="comida_menu">NUTRICIÓN</string>
+    <string name="rutina_menu">RUTINAS</string>
 </resources>
