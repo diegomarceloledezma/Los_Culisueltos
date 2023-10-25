@@ -7,6 +7,9 @@ android {
     namespace = "com.progra.losculisueltos"
     compileSdk = 33
 
+    viewBinding {
+        enable = true
+    }
     defaultConfig {
         applicationId = "com.progra.losculisueltos"
         minSdk = 29
