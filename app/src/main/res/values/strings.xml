@@ -11,4 +11,10 @@
     <string name="historial_menu">HISTORIAL</string>
     <string name="comida_menu">NUTRICIÓN</string>
     <string name="rutina_menu">RUTINAS</string>
+    <string name="pecho_menu">PECHO</string>
+    <string name="espalda_menu">ESPALDA</string>
+    <string name="brazos_menu">BRAZOS</string>
+    <string name="piernas_menu">PIERNAS</string>
+    <string name="hombros_menu">HOMBROS</string>
+    <string name="abdominal_menu">ABDOMINAL</string>
 </resources>

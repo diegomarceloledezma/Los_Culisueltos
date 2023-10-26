@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MenuEjerciciosActivity"
+    android:background="@color/azul_marino">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menu_barra"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/naranja">
+        <Button
+            android:id="@+id/button_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:drawableTop="@drawable/menu_icon"
+            android:paddingTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:id="@+id/button_user"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:drawableTop="@drawable/user_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_maquinas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/pecho_principal"
+                android:text="@string/pecho_menu"
+                android:textSize="18sp"
+                />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/hombro_principal"
+                android:text="@string/hombros_menu"
+                android:textSize="18sp"
+                />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/piernas_principal"
+                android:text="@string/piernas_menu"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/espalda_principal"
+                android:text="@string/espalda_menu"
+                android:textSize="18sp"
+                />
+
+
+            <Button
+                android:layout_width="2000dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/brazo_principal"
+                android:text="@string/brazos_menu"
+                android:textSize="18sp"
+                />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableTop="@drawable/abdominales_principal"
+                android:text="@string/abdominal_menu"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -169,7 +169,8 @@
         android:src="@drawable/gym_logo"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="591dp"
-        tools:ignore="MissingConstraints"></ImageView>
+        tools:ignore="MissingConstraints">
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     
