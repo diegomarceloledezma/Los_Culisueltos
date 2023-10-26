@@ -11,4 +11,11 @@
     <string name="historial_menu">HISTORIAL</string>
     <string name="comida_menu">NUTRICIÓN</string>
     <string name="rutina_menu">RUTINAS</string>
+    <string name="ubicacioon">UBICACIÓN</string>
+    <string name="horario">HORARIOS</string>
+    <string name="horario1">Lunes - Viernes 8:00-9:00</string>
+    <string name="horario2">Sabados 9:00-14:00</string>
+    <string name="instructores">INSTRUCTORES</string>
+    <string name="instructor1">SERGIO SANCHEZ</string>
+    <string name="instructor2">NINOSKA SANCHEZ</string>
 </resources>
