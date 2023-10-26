@@ -13,14 +13,13 @@
         android:theme="@style/Theme.LosCulisueltos"
         tools:targetApi="31">
         <activity
-            android:name=".MenuEjerciciosActivity"
-            android:exported="false" />
-        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".LogInActivity"
             android:exported="true">
@@ -32,7 +31,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>
