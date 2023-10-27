@@ -46,4 +46,8 @@
     </string-array>
 
 
+    <string name="DESAYUNO">DESAYUNO</string>
+    <string name="ALMUERZO">ALMUERZO</string>
+    <string name="CENA">CENA</string>
+    <string name="CALCULADORA_CALORICA">CALCULADORA CALORICA</string>
 </resources>
