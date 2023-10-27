@@ -1,12 +1,16 @@
 package com.progra.losculisueltos
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import android.content.Context
 import androidx.core.content.ContextCompat
+import com.progra.losculisueltos.CalculadoraResultadoActivity.Companion.CLAVE_INT
 import com.progra.losculisueltos.databinding.ActivityCalculadoraBinding
 class CalculadoraActivity : AppCompatActivity() {
     lateinit var binding: ActivityCalculadoraBinding
+    val context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,7 @@ class CalculadoraActivity : AppCompatActivity() {
             binding.femenino1.backgroundTintList = ContextCompat.getColorStateList(this, R.color.cyan)
             binding.masculino1.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
         }
+
         binding.calcularCal.setOnClickListener {
             val edadText = binding.edadCal.text.toString()
             val pesoText = binding.pesoCal.text.toString()
@@ -39,6 +44,10 @@ class CalculadoraActivity : AppCompatActivity() {
                     tmb = 655 + (9.6 * peso) + (1.8*estatura) - (4.7* edad)
                 }
 
+                val numeroInt: Int = tmb.toInt()
+                val intent: Intent = Intent(context, CalculadoraResultadoActivity::class.java)
+                intent.putExtra(CLAVE_INT,numeroInt)
+                startActivity(intent)
 
             } else {
                 val mensaje = "LLena todos los espacios"

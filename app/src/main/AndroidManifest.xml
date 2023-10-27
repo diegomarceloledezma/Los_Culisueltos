@@ -14,7 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LosCulisueltos"
         tools:targetApi="31">
+        <activity
+            android:name=".CalculadoraResultadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculadoraActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -22,7 +33,9 @@
 
         <activity
             android:name=".AcercaDeActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".ComidaActivity"
             android:exported="false" />
@@ -34,15 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".LogInActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />

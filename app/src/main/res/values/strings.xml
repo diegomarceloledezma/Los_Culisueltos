@@ -37,14 +37,19 @@
     <string name="brazos_menu">BRAZOS</string>
     <string name="abdominal_menu">ABDOMINALES</string>
     <string name="calcular">Calcular</string>
+    <string name="actividad1">Activida Semanal</string>
     <string-array name="actividad">
-            <item>Sedentario</item>
-            <item>Poco activo</item>
-            <item>Activo con moderación</item>
-            <item>Activo </item>
-            <item>Muy activo</item>
+        <item>Sedentario</item>
+        <item>Poco activo</item>
+        <item>Activo con moderación</item>
+        <item>Activo </item>
+        <item>Muy activo</item>
     </string-array>
-
+    
+    <string name="perder_peso">PERDER PESO</string>
+    <string name="ganar_musculo">GANAR MASA MUSCULAR</string>
+    <string name="ganar_fuerza">GANAR FUERZA</string>
+    <string name="mantener">MANTENER PESO</string>
 
     <string name="DESAYUNO">DESAYUNO</string>
     <string name="ALMUERZO">ALMUERZO</string>
