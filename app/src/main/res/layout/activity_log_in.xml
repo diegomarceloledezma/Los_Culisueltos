@@ -36,10 +36,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:hint="@string/usuario"
-                    android:inputType="text"
+                    android:hint="@string/correo"
+                    android:inputType="textEmailAddress"
                     android:paddingStart="8dp"
-                    android:maxLength="16"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
 
@@ -58,7 +57,6 @@
                     android:hint="@string/contrasenia"
                     android:inputType="textPassword"
                     android:paddingStart="8dp"
-                    android:maxLength="16"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
 

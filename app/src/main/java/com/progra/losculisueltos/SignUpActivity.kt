@@ -26,12 +26,13 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, contrasena)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
                     val intent = Intent(this, LogInActivity::class.java)
                     startActivity(intent)
                 } else {
 
+                    val intent = Intent(this, SignUpActivity::class.java)
+                    startActivity(intent)
                 }
             }
     }
