@@ -30,6 +30,12 @@
     <string name="estatura_con">EJ: 165(cm)</string>
     <string name="actividad">ACTIVIDAD</string>
     <string name="activida_con">EJ: 165(cm)</string>
+    <string name="pecho_menu">PECHO</string>
+    <string name="hombros_menu">HOMBROS</string>
+    <string name="piernas_menu">PIERNAS</string>
+    <string name="espalda_menu">ESPALDA</string>
+    <string name="brazos_menu">BRAZOS</string>
+    <string name="abdominal_menu">ABDOMINALES</string>
     <string name="calcular">Calcular</string>
     <string-array name="actividad">
             <item>Sedentario</item>
