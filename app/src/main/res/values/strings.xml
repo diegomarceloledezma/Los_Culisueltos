@@ -11,4 +11,33 @@
     <string name="historial_menu">HISTORIAL</string>
     <string name="comida_menu">NUTRICIÓN</string>
     <string name="rutina_menu">RUTINAS</string>
+    <string name="ubicacioon">UBICACIÓN</string>
+    <string name="horario">HORARIOS</string>
+    <string name="horario1">Lunes - Viernes 8:00-9:00</string>
+    <string name="horario2">Sabados 9:00-14:00</string>
+    <string name="instructores">INSTRUCTORES</string>
+    <string name="instructor1">SERGIO SANCHEZ</string>
+    <string name="instructor2">NINOSKA SANCHEZ</string>
+    <string name="calculadora">CALCULADORA CALÓRICA</string>
+    <string name="genero">GÉNERO</string>
+    <string name="genero1">MASCULINO</string>
+    <string name="genero2">FEMININO</string>
+    <string name="edad_con">EJ: 19</string>
+    <string name="edad">EDAD</string>
+    <string name="peso_con">PESO</string>
+    <string name="peso">EJ: 60(kg)</string>
+    <string name="estatura">ESTATURA</string>
+    <string name="estatura_con">EJ: 165(cm)</string>
+    <string name="actividad">ACTIVIDAD</string>
+    <string name="activida_con">EJ: 165(cm)</string>
+    <string name="calcular">Calcular</string>
+    <string-array name="actividad">
+            <item>Sedentario</item>
+            <item>Poco activo</item>
+            <item>Activo con moderación</item>
+            <item>Activo </item>
+            <item>Muy activo</item>
+    </string-array>
+
+
 </resources>
