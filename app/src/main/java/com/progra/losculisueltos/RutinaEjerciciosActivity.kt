@@ -28,31 +28,7 @@ class RutinaEjerciciosActivity : AppCompatActivity() {
     }
     fun iniciarRecyclerView(){
         val ejercicios = mutableListOf<Ejercicios>()
-        val ejercicio = Ejercicios(
-            nombre = "Prensa",
-            imagenE = 0,
-            explicacion = "",
-            parteDelCuerpo = "",
-            imagenMusculo = 0
-        )
-        val ejercicio1 = Ejercicios(
-            nombre = "Prensa",
-            imagenE = 0,
-            explicacion = "",
-            parteDelCuerpo = "",
-            imagenMusculo = 0
-        )
-        val ejercicio2 = Ejercicios(
-            nombre = "Prensa",
-            imagenE = 0,
-            explicacion = "",
-            parteDelCuerpo = "",
-            imagenMusculo = 0
-        )
 
-        ejercicios.add(ejercicio)
-        ejercicios.add(ejercicio1)
-        ejercicios.add(ejercicio2)
 
         ejercicioAdapter.addRutinas(ejercicios)
         binding.rutinasRecycler.apply{
