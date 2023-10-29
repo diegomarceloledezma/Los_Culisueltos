@@ -38,10 +38,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:padding="8dp"
         android:id="@+id/text_view_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/rojo"
+        android:textColor="@color/white"
         android:textSize="20dp" />
     <ImageView
         android:id="@+id/image_view_gif"
@@ -52,9 +53,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/descripcion_ejercicio"
-        android:textColor="@color/rojo"
-        android:textSize="25dp"/>
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
     <TextView
+        android:padding="8dp"
         android:id="@+id/text_view_explicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -12,13 +12,6 @@ import androidx.core.content.ContextCompat
 import com.progra.losculisueltos.CalculadoraResultadoActivity.Companion.CLAVE_INT
 import com.progra.losculisueltos.databinding.ActivityCalculadoraBinding
 import java.util.Date
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.firestore.FieldValue
-import com.progra.losculisueltos.dataclases.PesosInfo
-import com.progra.losculisueltos.dataclases.Usuario
 import java.util.Calendar
 class CalculadoraActivity : AppCompatActivity() {
     lateinit var binding: ActivityCalculadoraBinding

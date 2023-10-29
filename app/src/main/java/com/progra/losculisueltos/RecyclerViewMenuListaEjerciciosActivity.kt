@@ -1,5 +1,6 @@
 package com.progra.losculisueltos
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,7 @@ class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewMenuListaEjerciciosBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_recycler_view_menu_lista_ejercicios)
+        setContentView(binding.root)
         iniciarRecyclerView()
     }
     private fun iniciarRecyclerView() {
@@ -41,7 +42,13 @@ class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
                     false
                 )
             adapter = menuListaEjerciciosAdapter
+            menuListaEjerciciosAdapter.setOnItemClickListener { ejercicio ->
+                val intent = Intent(this@RecyclerViewMenuListaEjerciciosActivity, RecyclerViewExplicacionEjercicioActivity::class.java)
+                intent.putExtra(RecyclerViewExplicacionEjercicioActivity.CLAVE_EJERCICIO, ejercicio)
+                startActivity(intent)
+            }
         }
         menuListaEjerciciosAdapter.notifyDataSetChanged()
     }
+
 }

@@ -14,21 +14,16 @@ class RecyclerViewExplicacionEjercicioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewExplicacionEjercicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        iniciarRecyclerView()
+        val ejercicios : Ejercicios = intent.getSerializableExtra(CLAVE_EJERCICIO) as Ejercicios
+
+
+        iniciarRecyclerView(ejercicios)
     }
 
-    private fun iniciarRecyclerView() {
+    private fun iniciarRecyclerView(ejercicios1: Ejercicios) {
         val ejercicios = mutableListOf<Ejercicios>()
-        val abdominal = Ejercicios(
-            nombre = "Asciende de Piernas Extendidas en Tabla Vertical",
-            imagenE = R.drawable.asciende_de_piernas_extendidas_en_tabla_vertical,
-            explicacion = "En la máquina, nos elevamos con los antebrazos inclinados 90 grados con los hombros, debemos de mantener un equilibrio al momento de solo mover las piernas hacia nuestro estómago.  Todo este proceso con las piernas extendidas.",
-            parteDelCuerpo = "Abdominal",
-            imagenMusculo = R.drawable.comida,
-            id = "a1"
-        )
+        ejercicios.add(ejercicios1)
 
-        ejercicios.add(abdominal)
 
 
         explicacionEjercicioAdapter.addEjercicios(ejercicios)
@@ -43,6 +38,9 @@ class RecyclerViewExplicacionEjercicioActivity : AppCompatActivity() {
             adapter = explicacionEjercicioAdapter
         }
         explicacionEjercicioAdapter.notifyDataSetChanged()
+    }
+    companion object{
+        val CLAVE_EJERCICIO = "clave_ejercicio"
     }
 
 }
