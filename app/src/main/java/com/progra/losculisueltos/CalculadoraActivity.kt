@@ -11,6 +11,15 @@ import android.widget.AutoCompleteTextView
 import androidx.core.content.ContextCompat
 import com.progra.losculisueltos.CalculadoraResultadoActivity.Companion.CLAVE_INT
 import com.progra.losculisueltos.databinding.ActivityCalculadoraBinding
+import java.util.Date
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FieldValue
+import com.progra.losculisueltos.dataclases.PesosInfo
+import com.progra.losculisueltos.dataclases.Usuario
+import java.util.Calendar
 class CalculadoraActivity : AppCompatActivity() {
     lateinit var binding: ActivityCalculadoraBinding
     val context: Context = this
@@ -32,7 +41,9 @@ class CalculadoraActivity : AppCompatActivity() {
             val itemSelected = adapterView.getItemAtPosition(i)
             binding.opciones.hint = itemSelected.toString()
             opcion=i
+
         }
+
         binding.masculino1.setOnClickListener {
             genero = 1
             binding.masculino1.backgroundTintList = ContextCompat.getColorStateList(this, R.color.cyan)
@@ -50,17 +61,42 @@ class CalculadoraActivity : AppCompatActivity() {
             val estaturaText = binding.estaturaCal.text.toString()
             if (genero!=0 && edadText.isNotEmpty() && pesoText.isNotEmpty() && estaturaText.isNotEmpty() && opcion!=-1) {
                 val edad: Int = edadText.toInt()
-                val peso: Int = edadText.toInt()
+                val peso: Int = pesoText.toInt()
                 val estatura: Int = estaturaText.toInt()
                 var tmb: Double
+                val calendar = Calendar.getInstance()
+                val diaDelMes = calendar.get(Calendar.DAY_OF_MONTH)
+                val diasEnElMes = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+                var diaDivididoPorDiasDelMes = diaDelMes.toDouble() / diasEnElMes
+                //val nombreDelMes = obtenerNombreDelMes(calendar.get(Calendar.MONTH))
 
                 if(genero==1){
-                    tmb =  66.5 + (13.75 * peso) + (5.003*estatura) - (6.75 *edad)
+                    tmb = (10.0 * peso) + (6.25*estatura) - (5.0 *edad) + 5.0
                 }
                 else{
-                    tmb = 655.1 + (9.563 * peso) + (1.850*estatura) - (4.676*edad)
+                    tmb = (10.0 * peso) + (6.25*estatura) - (5.0*edad) + 161.0
                 }
-                tmb = tmb * mul[opcion]
+
+               /* val auth = Firebase.auth
+                val user = auth.currentUser
+
+                if (user != null) {
+                    val nuevaDiaDivididoPorDiasDelMes = diaDivididoPorDiasDelMes
+
+                    val db = FirebaseFirestore.getInstance()
+                    val userDocumentRef = db.collection("usuarios").document(user.uid)
+
+                    userDocumentRef.get().addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+                            val usuario = documentSnapshot.toObject(Usuario::class.java)
+                            val nuevaListaPesos = actualizarListaPesos(usuario?.pesos, peso, nuevaDiaDivididoPorDiasDelMes, nombreDelMes, 15)
+
+                            userDocumentRef.update("pesos", nuevaListaPesos)
+                        }
+                    }
+                }*/
+
+                tmb *= mul[opcion]
                 val numeroInt: Int = tmb.toInt()
                 val intent: Intent = Intent(context, CalculadoraResultadoActivity::class.java)
                 intent.putExtra(CLAVE_INT,numeroInt)
@@ -75,4 +111,29 @@ class CalculadoraActivity : AppCompatActivity() {
 
         }
     }
+
+    /*private fun actualizarListaPesos(
+        pesos: List<PesosInfo>?,
+        nuevoPeso: Int,
+        nuevaFecha: Double,
+        nombreDelMes: String,
+        maxSize: Int
+    ): List<PesosInfo> {
+        val listaPesos = mutableListOf<PesosInfo>()
+
+        listaPesos.add(PesosInfo(nombreDelMes, nuevaFecha, nuevoPeso))
+
+        pesos?.forEach {
+            listaPesos.add(it)
+        }
+        if (listaPesos.size > maxSize) {
+            listaPesos.removeAt(0)
+        }
+
+        return listaPesos
+    }
+    private fun obtenerNombreDelMes(mes: Int): String {
+        val meses = arrayOf("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+        return meses[mes]
+    }*/
 }

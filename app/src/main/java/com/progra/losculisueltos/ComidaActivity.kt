@@ -18,5 +18,9 @@ class ComidaActivity : AppCompatActivity() {
             val intent: Intent = Intent(context, CalculadoraActivity::class.java)
             startActivity(intent)
         }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
