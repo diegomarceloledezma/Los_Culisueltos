@@ -38,21 +38,31 @@
     <string name="abdominal_menu">ABDOMINALES</string>
     <string name="calcular">Calcular</string>
     <string name="actividad1">Activida Semanal</string>
-    <string-array name="actividad">
+    <string-array name="actividad_drop">
         <item>Sedentario</item>
         <item>Poco activo</item>
         <item>Activo con moderación</item>
         <item>Activo </item>
         <item>Muy activo</item>
     </string-array>
-    
+
     <string name="perder_peso">PERDER PESO</string>
     <string name="ganar_musculo">GANAR MASA MUSCULAR</string>
     <string name="ganar_fuerza">GANAR FUERZA</string>
     <string name="mantener">MANTENER PESO</string>
-
+    <string name="actividad2">Actividad Fisica</string>
     <string name="DESAYUNO">DESAYUNO</string>
     <string name="ALMUERZO">ALMUERZO</string>
     <string name="CENA">CENA</string>
     <string name="CALCULADORA_CALORICA">CALCULADORA CALORICA</string>
+    <string name="resultado">RESULTADO CALORICO</string>
+    <string name="volver_comidas">VOLVER A NUTRICION</string>
+    <string name="nombre_user">NOMBRE: </string>
+    <string name="usuario1">USUARIO</string>
+    <string name="mes">MES</string>
+    <string name="rutinas_add">AÑADIR RUTINA</string>
+    <string name="ini_rutina">NOMBRE EJERCICIO/ REP / SER / PESO</string>
+    <string name="guardar_rut">Guardar Rutina</string>
+    <string name="ejercios_add">Agregar Ejercicio</string>
+    <string name="descripcion_ejercicio">DESCRIPCION</string>
 </resources>
