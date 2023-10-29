@@ -5,5 +5,6 @@ data class Ejercicios(
     val imagenE: Int,
     var explicacion: String,
     var parteDelCuerpo: String,
-    val imagenMusculo: Int
+    val imagenMusculo: Int,
+    val id: String
 )

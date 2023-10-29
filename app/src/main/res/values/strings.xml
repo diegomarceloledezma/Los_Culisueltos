@@ -38,12 +38,12 @@
     <string name="abdominal_menu">ABDOMINALES</string>
     <string name="calcular">Calcular</string>
     <string-array name="actividad">
-            <item>Sedentario</item>
-            <item>Poco activo</item>
-            <item>Activo con moderación</item>
-            <item>Activo </item>
-            <item>Muy activo</item>
+        <item>Sedentario</item>
+        <item>Poco activo</item>
+        <item>Activo con moderación</item>
+        <item>Activo </item>
+        <item>Muy activo</item>
     </string-array>
-
+    <string name="descripcion_ejercicio">Descripción</string>
 
 </resources>
