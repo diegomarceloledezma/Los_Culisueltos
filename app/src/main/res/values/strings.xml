@@ -57,4 +57,11 @@
     <string name="CALCULADORA_CALORICA">CALCULADORA CALORICA</string>
     <string name="resultado">RESULTADO CALORICO</string>
     <string name="volver_comidas">VOLVER A NUTRICION</string>
+    <string name="nombre_user">NOMBRE: </string>
+    <string name="usuario1">USUARIO</string>
+    <string name="mes">MES</string>
+    <string name="rutinas_add">AÑADIR RUTINA</string>
+    <string name="ini_rutina">NOMBRE EJERCICIO/ REP / SER / PESO</string>
+    <string name="guardar_rut">Guardar Rutina</string>
+    <string name="ejercios_add">Agregar Ejercicio</string>
 </resources>

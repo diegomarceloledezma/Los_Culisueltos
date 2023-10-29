@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MenuEjerciciosActivity"
     android:background="@color/azul_marino">
 
@@ -39,6 +40,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         android:id="@+id/menu_maquinas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,6 +49,7 @@
         android:weightSum="2"
         >
         <LinearLayout
+            android:paddingHorizontal="8dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -53,10 +57,8 @@
             android:layout_weight="1"
             >
             <Button
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="15dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/pecho_principal"
                 android:text="@string/pecho_menu"
@@ -64,20 +66,18 @@
                 />
 
             <Button
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/hombro_principal"
                 android:text="@string/hombros_menu"
                 android:textSize="18sp"
                 />
             <Button
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/piernas_principal"
                 android:text="@string/piernas_menu"
@@ -89,16 +89,15 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
             >
 
             <Button
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="15dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/espalda_principal"
                 android:text="@string/espalda_menu"
@@ -107,20 +106,18 @@
 
 
             <Button
-                android:layout_width="2000dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/brazo_principal"
                 android:text="@string/brazos_menu"
                 android:textSize="18sp"
                 />
             <Button
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@android:color/transparent"
                 android:drawableTop="@drawable/abdominales_principal"
                 android:text="@string/abdominal_menu"
@@ -130,6 +127,12 @@
         </LinearLayout>
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/gym_logo"
+        />
 
 
 </LinearLayout>

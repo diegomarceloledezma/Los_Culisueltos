@@ -9,9 +9,6 @@ android {
     namespace = "com.progra.losculisueltos"
     compileSdk = 33
 
-    viewBinding {
-        enable = true
-    }
     defaultConfig {
         applicationId = "com.progra.losculisueltos"
         minSdk = 29
@@ -52,8 +49,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
