@@ -23,5 +23,6 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, MenuEjerciciosActivity::class.java)
             startActivity(intent)
         }
+
     }
 }

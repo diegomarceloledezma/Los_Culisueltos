@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.progra.losculisueltos.adapter.ComidaAdapter
 import com.progra.losculisueltos.databinding.ActivityComidaBinding
+import com.progra.losculisueltos.dataclases.Comidas
 
 class ComidaActivity : AppCompatActivity() {
     lateinit var binding: ActivityComidaBinding
@@ -14,7 +16,7 @@ class ComidaActivity : AppCompatActivity() {
         binding = ActivityComidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textoMenuCalculadoraCalorica.setOnClickListener {
+        binding.cardViewCalculadoraCalorica.setOnClickListener {
             val intent: Intent = Intent(context, CalculadoraActivity::class.java)
             startActivity(intent)
         }
@@ -22,5 +24,11 @@ class ComidaActivity : AppCompatActivity() {
             val intent: Intent = Intent(context, PerfilActivity::class.java)
             startActivity(intent)
         }
+        binding.cardViewDesayuno.setOnClickListener{
+            val intent: Intent = Intent(context, ComidaIndividualActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+
 }

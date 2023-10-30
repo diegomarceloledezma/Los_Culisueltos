@@ -65,4 +65,6 @@
     <string name="guardar_rut">Guardar Rutina</string>
     <string name="ejercios_add">Agregar Ejercicio</string>
     <string name="descripcion_ejercicio">DESCRIPCION</string>
+    <string name="Ingredientes">Ingredientes</string>
+    <string name="Preparación">Preparación</string>
 </resources>

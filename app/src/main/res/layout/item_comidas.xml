@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/azul_marino"
-    android:gravity="center_horizontal">
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/titulo_comida_calorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="@color/white">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imagen_comida"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/fondo_desayuno">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/titulo_ingredientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Ingredientes"
+        android:textColor="@color/white"
+        android:textSize="24sp">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="left"
+        android:paddingLeft="8dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/innerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/titulo_preparacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Preparación"
+        android:textColor="@color/white"
+        android:textSize="24sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/texto_preparacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="24sp">
+    </TextView>
 </LinearLayout>
