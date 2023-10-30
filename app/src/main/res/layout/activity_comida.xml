@@ -48,7 +48,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="308dp"
+            android:layout_height="274dp"
             android:src="@drawable/fondo_desayuno"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:2"
