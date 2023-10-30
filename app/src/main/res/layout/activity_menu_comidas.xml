@@ -46,81 +46,8 @@
             android:gravity="center"
             android:orientation="vertical"
             >
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/piernas_menu"
-                />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/piernas_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/pecho_menu"
-                />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/pecho_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/hombros_menu"
-                />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/hombro_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/espalda_menu"
-                />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/espalda_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/brazos_menu"
-                />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/brazos_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-            <TextView
-                android:layout_marginVertical="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/abdominal_menu"
-                />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/abdominales_recycler"
+                android:id="@+id/comidas_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
