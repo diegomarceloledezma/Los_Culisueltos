@@ -13,14 +13,14 @@ class RutinasAdapter :
     private var context: Context? = null
     private val listaRutinas = mutableListOf<Rutinas>()
 
-    // Interfaz para manejar clics en los elementos de la lista
+
     interface OnItemClickListener {
         fun onItemClick(rutina: Rutinas)
     }
 
     private var onItemClickListener: ((Rutinas) -> Unit)? = null
 
-    // Método para configurar el listener
+
     fun setOnItemClickListener(listener: (Rutinas) -> Unit) {
         onItemClickListener = listener
     }

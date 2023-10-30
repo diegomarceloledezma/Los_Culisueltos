@@ -32,19 +32,15 @@
         android:textSize="24sp">
     </TextView>
 
-    <LinearLayout
+    <TextView
+        android:padding="8dp"
+        android:id="@+id/ingredientes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="left"
-        android:paddingLeft="8dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/innerRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp">
+    </TextView>
 
 
 
@@ -58,11 +54,12 @@
     </TextView>
 
     <TextView
+        android:padding="8dp"
         android:id="@+id/texto_preparacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:textColor="@color/white"
-        android:textSize="24sp">
+        android:textSize="18sp">
     </TextView>
 </LinearLayout>

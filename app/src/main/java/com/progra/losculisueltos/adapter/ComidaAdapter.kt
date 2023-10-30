@@ -33,11 +33,9 @@ class ComidaAdapter: RecyclerView.Adapter<ComidaAdapter.ComidaAdapterViewHolder>
             binding.tituloComidaCalorias.text = data.nombre + " - " + data.calorias
             binding.textoPreparacion.text = data.preparacion
             binding.imagenComida.setImageResource(data.imagenC)
+            binding.ingredientes.text = data.ingredientes
 
-            val innerRecyclerView = binding.innerRecyclerView
-            val ingredientesAdapter = IngredientesAdapter(data.ingredientes)
-            innerRecyclerView.layoutManager = LinearLayoutManager(context)
-            innerRecyclerView.adapter = ingredientesAdapter
+
         }
     }
 
