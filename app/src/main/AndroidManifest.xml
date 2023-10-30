@@ -15,6 +15,9 @@
         android:theme="@style/Theme.LosCulisueltos"
         tools:targetApi="31">
         <activity
+            android:name=".MenuComidasActivity"
+            android:exported="false" />
+        <activity
             android:name=".ComidaIndividualActivity"
             android:exported="false" />
         <activity
@@ -22,7 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".RutinasActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".PerfilActivity"
             android:exported="false" />
@@ -57,7 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".LogInActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -66,8 +69,7 @@
             android:exported="false" />
         <activity
             android:name=".RecyclerViewMenuListaEjerciciosActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".RecyclerViewExplicacionEjercicioActivity"
             android:exported="false" />

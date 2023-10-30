@@ -34,8 +34,6 @@ class ComidaAdapter: RecyclerView.Adapter<ComidaAdapter.ComidaAdapterViewHolder>
             binding.textoPreparacion.text = data.preparacion
             binding.imagenComida.setImageResource(data.imagenC)
             binding.ingredientes.text = data.ingredientes
-
-
         }
     }
 

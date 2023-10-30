@@ -1,5 +1,6 @@
 package com.progra.losculisueltos
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,30 +11,29 @@ import com.progra.losculisueltos.dataclases.Comidas
 class ComidaIndividualActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityComidaIndividualBinding
+    val context: Context = this
     private val comidaAdapter by lazy { ComidaAdapter() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityComidaIndividualBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        iniciarRecycleViewDesayuno()
+        val comida : Comidas = intent.getSerializableExtra(CLAVE_COMIDA) as Comidas
+        iniciarRecycleViewDesayuno(comida)
     }
 
-    fun iniciarRecycleViewDesayuno(){
+    fun iniciarRecycleViewDesayuno(comida: Comidas) {
         val comidasDesayuno = mutableListOf<Comidas>()
 
-        val comida1 = Comidas(
-            nombre = "Batido de espinacas y platano",
-            calorias = 175,
-            ingredientes = "1 taza de espinacas frescas\n1 plátano maduro\n1/2 taza de leche desnatada (u otra alternativa baja en calorías, como leche de almendra sin azúcar)\n1 cucharadita de miel (opcional)\nHielo al gusto",
-            preparacion = "Coloca las espinacas, el plátano, la leche (o alternativa de leche baja en calorías), la miel (si lo deseas) y el hielo en una licuadora. Mezcla hasta obtener una consistencia suave y homogénea.",
-            imagenC = R.drawable.batido_espinacas_platano
-        )
-        comidasDesayuno.add(comida1)
+        comidasDesayuno.add(comida)
         comidaAdapter.addComidas(comidasDesayuno)
         binding.recycleViewComidas.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
             adapter = comidaAdapter
         }
         comidaAdapter.notifyDataSetChanged()
+    }
+
+    companion object{
+        val CLAVE_COMIDA = "clave_comida"
     }
 }
