@@ -1,6 +1,7 @@
 package com.progra.losculisueltos.adapter
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -57,6 +58,17 @@ class SeleccionEjereciciosAdapter: RecyclerView.Adapter<SeleccionEjereciciosAdap
 
         fun setupItemClickListener(data: Ejercicios) {
             binding.root.setOnClickListener {
+                val backgroundColor = ContextCompat.getColor(context!!, R.color.azul_calro)
+                val currentBackgroundColor = (binding.ejercicioSelect.background as? ColorDrawable)?.color ?: 0
+
+                if (currentBackgroundColor == backgroundColor) {
+                    val whiteBackgroundColor = ContextCompat.getColor(context!!, R.color.white)
+                    val backgroundDrawable = ColorDrawable(whiteBackgroundColor)
+                    binding.ejercicioSelect.background = backgroundDrawable
+                } else {
+                    val backgroundDrawable = ColorDrawable(backgroundColor)
+                    binding.ejercicioSelect.background = backgroundDrawable
+                }
                 onItemClickListener?.invoke(data)
             }
         }

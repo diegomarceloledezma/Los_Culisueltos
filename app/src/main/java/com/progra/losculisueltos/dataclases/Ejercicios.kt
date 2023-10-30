@@ -8,5 +8,5 @@ data class Ejercicios(
     var explicacion: String,
     var parteDelCuerpo: String,
     val imagenMusculo: Int,
-    val id: String
+    val id: Int
 ): Serializable
