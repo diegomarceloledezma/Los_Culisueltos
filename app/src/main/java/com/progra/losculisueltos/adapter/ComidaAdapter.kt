@@ -18,9 +18,9 @@ class ComidaAdapter: RecyclerView.Adapter<ComidaAdapter.ComidaAdapterViewHolder>
         return ComidaAdapterViewHolder(
             ItemComidasBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
-                )
             )
-        }
+        )
+    }
 
     override fun onBindViewHolder(Holder: ComidaAdapterViewHolder, position: Int){
         Holder.binding(listaComidas[position])
@@ -34,16 +34,13 @@ class ComidaAdapter: RecyclerView.Adapter<ComidaAdapter.ComidaAdapterViewHolder>
             binding.textoPreparacion.text = data.preparacion
             binding.imagenComida.setImageResource(data.imagenC)
             binding.ingredientes.text = data.ingredientes
-
-
         }
     }
 
     fun addComidas(nuevaListaComidas: List<Comidas>) {
         listaComidas.clear()
         listaComidas.addAll(nuevaListaComidas)
-        }
+    }
 
 
 }
-
