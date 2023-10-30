@@ -3,7 +3,7 @@ package com.progra.losculisueltos
 import com.progra.losculisueltos.dataclases.Ejercicios
 
 class ListaDeEjerciciosProvider {
-    val lista = mutableListOf<Ejercicios>(
+    val listaAbdominales = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Asciende de Piernas Extendidas en Tabla Vertical",
             imagenE = R.drawable.asciende_de_piernas_extendidas_en_tabla_vertical,
@@ -51,7 +51,8 @@ class ListaDeEjerciciosProvider {
             parteDelCuerpo = "Abdominal",
             imagenMusculo = R.drawable.abdominales_con_rueda1,
             id = "a6"
-        ),
+        )
+    )
 
 
 
@@ -59,6 +60,7 @@ class ListaDeEjerciciosProvider {
         //Brazos
 
 
+    val listaBrazos = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Bicep con barra z",
             imagenE = R.drawable.bicep_con_barra_z,
@@ -106,11 +108,13 @@ class ListaDeEjerciciosProvider {
             parteDelCuerpo = "Brazos",
             imagenMusculo = R.drawable.fondos_en_banca2,
             id = "b6"
-        ),
+        )
+    )
 
 
         //Espalda
 
+    val listaEspalda = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Dominadas",
             imagenE = R.drawable.dominadas,
@@ -158,11 +162,13 @@ class ListaDeEjerciciosProvider {
             parteDelCuerpo = "Espalda",
             imagenMusculo = R.drawable.remo_con_poleas3,
             id = "c6"
-        ),
+        ))
+
 
         //Hombros
 
 
+    val listaHombros = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Extensiones Laterales Individuales con Poleas",
             imagenE = R.drawable.extensiones_laterales_individuales_con_poleas,
@@ -211,12 +217,14 @@ class ListaDeEjerciciosProvider {
             parteDelCuerpo = "Hombro",
             imagenMusculo = R.drawable.press_militar_maquina_con_agarre_cerrado4,
             id = "d6"
-        ),
+        )
+    )
 
 
         //Pecho
 
 
+    val listaPecho = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Pec Deck",
             imagenE = R.drawable.pec_deck,
@@ -264,11 +272,13 @@ class ListaDeEjerciciosProvider {
             parteDelCuerpo = "Pecho",
             imagenMusculo = R.drawable.press_banca_inclinado_con_mancuernas5,
             id = "e6"
-        ),
+        )
+    )
 
 
         //Piernas
 
+    val listaPiernas = mutableListOf<Ejercicios>(
         Ejercicios(
             nombre = "Abductores",
             imagenE = R.drawable.abductores,

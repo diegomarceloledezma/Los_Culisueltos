@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.progra.losculisueltos.MenuEjerciciosActivity.Companion.CLAVE_LISTA_EJERCICIOS
 import com.progra.losculisueltos.adapter.MenuListaEjerciciosAdapter
 import com.progra.losculisueltos.databinding.ActivityRecyclerViewMenuListaEjerciciosBinding
+import com.progra.losculisueltos.dataclases.Comidas
 import com.progra.losculisueltos.dataclases.Ejercicios
 
 class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
@@ -15,24 +17,12 @@ class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewMenuListaEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        iniciarRecyclerView()
+        val ejercicios: List<Ejercicios> = intent.getSerializableExtra(CLAVE_LISTA_EJERCICIOS) as List<Ejercicios>
+        iniciarRecyclerView(ejercicios)
     }
-    private fun iniciarRecyclerView() {
-        val menuEjercicios = mutableListOf<Ejercicios>()
-        val abdominal = Ejercicios(
-            nombre = "Asciende de Piernas Extendidas en Tabla Vertical",
-            imagenE = R.drawable.asciende_de_piernas_extendidas_en_tabla_vertical,
-            explicacion = "En la máquina, nos elevamos con los antebrazos inclinados 90 grados con los hombros, debemos de mantener un equilibrio al momento de solo mover las piernas hacia nuestro estómago.  Todo este proceso con las piernas extendidas.",
-            parteDelCuerpo = "Abdominal",
-            imagenMusculo = R.drawable.comida,
-            id = "a1"
-        )
+    private fun iniciarRecyclerView(ejercicios: List<Ejercicios>) {
 
-
-        menuEjercicios.add(abdominal)
-
-
-        menuListaEjerciciosAdapter.addListaEjercicios(menuEjercicios)
+        menuListaEjerciciosAdapter.addListaEjercicios(ejercicios)
 
         binding.listaEjercicios.apply {
             layoutManager =

@@ -14,7 +14,7 @@
         android:background="@color/cian_oscuro"
         android:padding="16dp"
         android:text=""
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="16sp" />
 
 </androidx.cardview.widget.CardView>

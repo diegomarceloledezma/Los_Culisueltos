@@ -5,16 +5,17 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="64dp"
     android:layout_margin="16dp"
+
     >
 
     <TextView
-        android:id="@+id/opcion_commida"
+        android:id="@+id/ejercicio_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cian_oscuro"
         android:padding="16dp"
-        android:text=""
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:background="@color/white"
+        android:textColor="@android:color/black"
+        android:text="" />
 
 </androidx.cardview.widget.CardView>

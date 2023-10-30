@@ -57,6 +57,7 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/pecho_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:backgroundTint="@android:color/transparent"
@@ -66,6 +67,7 @@
                 />
 
             <Button
+                android:id="@+id/hombro_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="32dp"
@@ -75,6 +77,7 @@
                 android:textSize="18sp"
                 />
             <Button
+                android:id="@+id/piernas_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="32dp"
@@ -96,6 +99,7 @@
             >
 
             <Button
+                android:id="@+id/espalda_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:backgroundTint="@android:color/transparent"
@@ -106,6 +110,7 @@
 
 
             <Button
+                android:id="@+id/brazos_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="32dp"
@@ -115,6 +120,7 @@
                 android:textSize="18sp"
                 />
             <Button
+                android:id="@+id/abdominales_menu"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="32dp"
