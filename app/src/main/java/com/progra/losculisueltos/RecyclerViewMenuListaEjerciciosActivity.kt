@@ -13,7 +13,7 @@ class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewMenuListaEjerciciosBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_recycler_view_menu_lista_ejercicios)
+        setContentView(binding.root)
         iniciarRecyclerView()
     }
     private fun iniciarRecyclerView() {
