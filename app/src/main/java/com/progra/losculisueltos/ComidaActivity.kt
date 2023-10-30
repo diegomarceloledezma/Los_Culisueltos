@@ -11,6 +11,9 @@ import com.progra.losculisueltos.dataclases.Comidas
 class ComidaActivity : AppCompatActivity() {
     lateinit var binding: ActivityComidaBinding
     val context: Context = this
+    val desayunos = inicializarDesayuno()
+    val almuerzos = inicializarAlmuerzo()
+    val cenas = inicializarCena()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityComidaBinding.inflate(layoutInflater)
@@ -25,12 +28,27 @@ class ComidaActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.cardViewDesayuno.setOnClickListener{
-            val intent: Intent = Intent(context, ComidaIndividualActivity::class.java)
+            val intent: Intent = Intent(context, MenuComidasActivity::class.java)
+            val arrayList = ArrayList(desayunos)
+            intent.putExtra(CLAVE_LISTA, arrayList)
             startActivity(intent)
         }
+        binding.cardViewAlmuerzo.setOnClickListener{
+            val intent: Intent = Intent(context, MenuComidasActivity::class.java)
+            val arrayList = ArrayList(almuerzos)
+            intent.putExtra(CLAVE_LISTA, arrayList)
+            startActivity(intent)
+        }
+        binding.cardViewCena.setOnClickListener{
+            val intent: Intent = Intent(context, MenuComidasActivity::class.java)
+            val arrayList = ArrayList(cenas)
+            intent.putExtra(CLAVE_LISTA, arrayList)
+            startActivity(intent)
+        }
+
     }
 
-    fun inicializarDesayuno(){
+    fun inicializarDesayuno(): List<Comidas>{
         val desayuno = mutableListOf<Comidas>(
              Comidas(
                 nombre = "Batido de Espinacas y Platano",
@@ -96,9 +114,10 @@ class ComidaActivity : AppCompatActivity() {
                 imagenC = R.drawable.batido_proteinas
             )
         )
+        return desayuno
     }
 
-    fun inicializarAlmuerzo(){
+    fun inicializarAlmuerzo(): List<Comidas>{
         val almuerzo = mutableListOf<Comidas>(
             Comidas(
                 nombre = "Ensalada de Pollo a la Parrilla",
@@ -164,9 +183,10 @@ class ComidaActivity : AppCompatActivity() {
                 imagenC = R.drawable.pollo_curry_arroz_naan
             )
         )
+        return almuerzo
     }
 
-    fun inicializarCena(){
+    fun inicializarCena(): List<Comidas>{
         val cena = mutableListOf<Comidas>(
             Comidas(
                 nombre = "Sopa de Calabacín",
@@ -232,6 +252,10 @@ class ComidaActivity : AppCompatActivity() {
                 imagenC = R.drawable.lasanha_carne_queso_ensalada_espinacas_nueces
             ),
         )
+        return cena
+    }
+    companion object{
+        val CLAVE_LISTA = "clave_lista"
     }
 
 }

@@ -1,0 +1,20 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="64dp"
+    android:layout_margin="16dp"
+    >
+
+    <TextView
+        android:id="@+id/opcion_commida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cian_oscuro"
+        android:padding="16dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+</androidx.cardview.widget.CardView>
