@@ -104,8 +104,6 @@ class RutinaEjerciciosActivity : AppCompatActivity() {
 
 
 
-
-
                     preference = PreferenceManager.getDefaultSharedPreferences(this)
                     val editor = preference.edit()
                     val gson1 = Gson()

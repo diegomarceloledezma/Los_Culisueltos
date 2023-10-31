@@ -17,8 +17,7 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:text="0"
-        android:inputType="number"
+        android:text="@string/cero"
         android:background="@null"
         />
 
@@ -28,8 +27,7 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:inputType="number"
-        android:text="0"
+        android:text="@string/cero"
         android:background="@null"
         />
 
@@ -39,8 +37,7 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:inputType="number"
-        android:text="0"
+        android:text="@string/cero"
         android:background="@null"
         />
 </LinearLayout>
