@@ -15,19 +15,13 @@
         android:theme="@style/Theme.LosCulisueltos"
         tools:targetApi="31">
         <activity
-            android:name=".recyclerviews.HistorialActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".SeleccionEjerciciosActivity"
+            android:exported="false"/>
         <activity
-            android:name=".recyclerviews.MenuComidasActivity"
+            android:name=".MenuComidasActivity"
             android:exported="false" />
         <activity
-            android:name=".recyclerviews.ComidaIndividualActivity"
+            android:name=".ComidaIndividualActivity"
             android:exported="false" />
         <activity
             android:name=".RutinaEjerciciosActivity"
@@ -46,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".RecyclerViewMenuListaEjerciciosActivity"
-            android:exported="true" />
+            android:exported="true"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -63,21 +57,26 @@
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
-            android:exported="false"/>
+            android:exported="false">
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".LogInActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".recyclerviews.RecyclerViewExplicacionEjercicioActivity"
+            android:name=".RecyclerViewExplicacionEjercicioActivity"
             android:exported="false" />
-        <activity android:name="SeleccionEjerciciosActivity"
-            android:exported="false"/>
     </application>
 
 </manifest>
