@@ -52,8 +52,9 @@ class HistorialEjerciciosActivity : AppCompatActivity() {
             adapter=historialEjercicioAdapter
             historialEjercicioAdapter.setOnItemClickListener {ejercicioInfo1 ->
 
-                val imagen2: Int =  ejercicioInfo1.ejercicio.imagenMusculo
-                    binding.imageView.setImageResource(imagen2)
+                val imagen2: Int = ejercicioInfo1.ejercicio.imagenMusculo
+
+                binding.imageView.setImageResource(imagen2)
 
             }
         }
