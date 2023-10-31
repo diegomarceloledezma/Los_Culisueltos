@@ -26,7 +26,7 @@ class RutinasActivity : AppCompatActivity() {
     lateinit var jsonMap: String
     var cambiosRealizados: Boolean = false
     var listHistorial: MutableList<Historial> = mutableListOf()
-    val listRutinas = mutableListOf<Rutinas>()
+    var listRutinas = mutableListOf<Rutinas>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRutinasBinding.inflate(layoutInflater)
@@ -36,6 +36,13 @@ class RutinasActivity : AppCompatActivity() {
         if (jsonMap != "") {
             listHistorial= Gson().fromJson(jsonMap, object : TypeToken<List<Historial>>() {}.type)
         }
+        jsonMap = preference.getString(MenuActivity.CLAVE_RUTINAS_LISTA, null)?: ""
+        if (jsonMap != "") {
+            listRutinas= Gson().fromJson(jsonMap, object : TypeToken<List<Rutinas>>() {}.type)
+        }
+
+        //println("${listRutinas}")
+
         val editor = preference.edit()
         val historialNuevo: Historial = Historial(
                 fecha = "",
@@ -86,16 +93,12 @@ class RutinasActivity : AppCompatActivity() {
                 listRutinas.add(rutinaNuevo)
             }
 
+
             val editor = preference.edit()
 
             val gson1 = Gson()
             val listSerializado = gson1.toJson(listRutinas)
             editor.putString(MenuActivity.CLAVE_RUTINAS_LISTA, listSerializado)
-
-
-
-
-
 
             jsonMap = preference.getString(CLAVE_HISTORIAL, null)?: ""
             if (jsonMap != "") {
@@ -106,6 +109,7 @@ class RutinasActivity : AppCompatActivity() {
             val gson = Gson()
             val mapaSerializado = gson.toJson(listHistorial)
             editor.putString(MenuActivity.CLAVE_HISTORIAL_LISTA, mapaSerializado)
+
             editor.putBoolean("cambiosRealizadosHistorial", true)
             editor.apply()
             Toast.makeText(this, "Se realizaron los cambios.", Toast.LENGTH_SHORT).show()

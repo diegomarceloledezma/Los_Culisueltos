@@ -20,17 +20,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        preference = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = preference.edit()
-        var listHistorial: List<Historial> = mutableListOf()
-        var listRutinas: List<Rutinas> = mutableListOf()
-        val gson = Gson()
-        val listaSerializado = gson.toJson(listHistorial)
-        val listaSerializadoR = gson.toJson(listRutinas)
-        editor.putString(CLAVE_HISTORIAL_LISTA, listaSerializado)
-        editor.apply()
-        editor.putString(CLAVE_RUTINAS_LISTA, listaSerializadoR)
-        editor.apply()
+
         binding.nutricion.setOnClickListener {
             val intent = Intent(this, ComidaActivity::class.java)
             startActivity(intent)
