@@ -62,7 +62,7 @@
     <string name="mes">MES</string>
     <string name="rutinas_add">AÑADIR RUTINA</string>
     <string name="ini_rutina">NOMBRE EJERCICIO/ REP / SER / PESO</string>
-    <string name="guardar_rut">Guardar Rutina</string>
+    <string name="guardar_rut">Guardar Rutina Diaria</string>
     <string name="ejercios_add">Agregar Ejercicio</string>
     <string name="descripcion_ejercicio">DESCRIPCION</string>
     <string name="Ingredientes">Ingredientes</string>

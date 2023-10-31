@@ -1,16 +1,19 @@
 package com.progra.losculisueltos
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.Toast
+import com.google.gson.reflect.TypeToken
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.progra.losculisueltos.adapter.SeleccionEjereciciosAdapter
 import com.progra.losculisueltos.databinding.ActivitySeleccionEjerciciosBinding
 import com.progra.losculisueltos.dataclases.Ejercicios
 
 class SeleccionEjerciciosActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivitySeleccionEjerciciosBinding
     private val seleccionEjereciciosAdapter by lazy{ SeleccionEjereciciosAdapter() }
     val ejerciciosBase = ListaDeEjerciciosProvider()
@@ -20,25 +23,51 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
     val ejercicioBrazo = ejerciciosBase.listaBrazos
     val ejercicioHombros = ejerciciosBase.listaHombros
     val ejercicioAbdominal = ejerciciosBase.listaAbdominales
-    val mapaEjercicios: MutableMap<Int, Boolean> = mutableMapOf()
+    val adapterPiernas = SeleccionEjereciciosAdapter()
+    val adapterPecho = SeleccionEjereciciosAdapter()
+    val adapterEspalda = SeleccionEjereciciosAdapter()
+    val adapterAbdominales = SeleccionEjereciciosAdapter()
+    val adapterBrazos = SeleccionEjereciciosAdapter()
+    val adapterHombros = SeleccionEjereciciosAdapter()
+    var mapaEjercicios: MutableMap<Int, Boolean> = mutableMapOf()
+    private lateinit var preference: SharedPreferences
+    lateinit var jsonMap: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySeleccionEjerciciosBinding.inflate(layoutInflater)
-        for(i in 1 .. 36){
-            mapaEjercicios[i] = false
-        }
         setContentView(binding.root)
+        preference = PreferenceManager.getDefaultSharedPreferences(this)
+        jsonMap = preference.getString(RutinaEjerciciosActivity.CLAVE_EJERCICIOS, null)?: ""
+        if (jsonMap != "") {
+            mapaEjercicios= Gson().fromJson(jsonMap, object : TypeToken<Map<Int, Boolean>>() {}.type)
+        }
         iniciarRecyclerViewPiernas(ejercicioPierna)
         iniciarRecyclerViewPecho(ejercicioPecho)
         iniciarRecyclerViewEspalda(ejercicioEspalda)
         iniciarRecyclerViewBrazo(ejercicioBrazo)
         iniciarRecyclerViewHombro(ejercicioHombros)
         iniciarRecyclerViewAbdominal(ejercicioAbdominal)
+
+        binding.guardarEjercicios.setOnClickListener {
+            val gson = Gson()
+            val jsonMap = gson.toJson(mapaEjercicios)
+
+            val editor = preference.edit()
+            editor.putString(RutinaEjerciciosActivity.CLAVE_EJERCICIOS, jsonMap)
+            editor.putBoolean("cambiosRealizados", true)
+            editor.apply()
+
+            finish()
+
+        }
+
+
     }
 
     private fun iniciarRecyclerViewPiernas(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterPiernas.addListaEjercicios(ejercicios)
 
         binding.piernasRecycler.apply {
             layoutManager =
@@ -47,16 +76,16 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterPiernas
+            adapterPiernas.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterPiernas.notifyDataSetChanged()
     }
     private fun iniciarRecyclerViewPecho(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterPecho.addListaEjercicios(ejercicios)
 
         binding.pechoRecycler.apply {
             layoutManager =
@@ -65,16 +94,16 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterPecho
+            adapterPecho.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterPecho.notifyDataSetChanged()
     }
     private fun iniciarRecyclerViewEspalda(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterEspalda.addListaEjercicios(ejercicios)
 
         binding.espaldaRecycler.apply {
             layoutManager =
@@ -83,16 +112,16 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterEspalda
+            adapterEspalda.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterEspalda.notifyDataSetChanged()
     }
     private fun iniciarRecyclerViewAbdominal(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterAbdominales.addListaEjercicios(ejercicios)
 
         binding.abdominalesRecycler.apply {
             layoutManager =
@@ -101,16 +130,16 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterAbdominales
+            adapterAbdominales.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterAbdominales.notifyDataSetChanged()
     }
     private fun iniciarRecyclerViewBrazo(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterBrazos.addListaEjercicios(ejercicios)
 
         binding.brazosRecycler.apply {
             layoutManager =
@@ -119,17 +148,17 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterBrazos
+            adapterBrazos.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
 
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterBrazos.notifyDataSetChanged()
     }
     private fun iniciarRecyclerViewHombro(ejercicios: List<Ejercicios>) {
 
-        seleccionEjereciciosAdapter.addListaEjercicios(ejercicios)
+        adapterHombros.addListaEjercicios(ejercicios)
 
         binding.hombroRecycler.apply {
             layoutManager =
@@ -138,12 +167,12 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            adapter = seleccionEjereciciosAdapter
-            seleccionEjereciciosAdapter.setOnItemClickListener { ejercicio ->
+            adapter = adapterHombros
+            adapterHombros.setOnItemClickListener { ejercicio ->
                 mapaEjercicios[ejercicio.id] = (mapaEjercicios[ejercicio.id] ?: false).xor(true)
 
             }
         }
-        seleccionEjereciciosAdapter.notifyDataSetChanged()
+        adapterHombros.notifyDataSetChanged()
     }
 }
