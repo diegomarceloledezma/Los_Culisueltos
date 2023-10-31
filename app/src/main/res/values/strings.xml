@@ -67,4 +67,15 @@
     <string name="descripcion_ejercicio">DESCRIPCION</string>
     <string name="Ingredientes">Ingredientes</string>
     <string name="Preparación">Preparación</string>
+    <string name="Máquinas">Máquinas</string>
+    <string name="Nutrición">Nutrición</string>
+    <string name="Rutinas">Rutinas</string>
+    <string name="Historial">Historial</string>
+    <string name="acerca_de">acerca de</string>
+    <string name="Cerrar_sesion">Cerrar Sesión</string>
+    <string name="Body_Fit">Body Fit</string>
+    <string name="Funciones">Funciones</string>
+    <string name="Informacion">Información</string>
+    <string name="Opciones_de_Usuario">Opciones de Usuario</string>
+    <string name="gimnasio">Gimnasio</string>
 </resources>
