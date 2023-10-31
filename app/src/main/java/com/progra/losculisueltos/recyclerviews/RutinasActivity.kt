@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.progra.losculisueltos.RutinaEjerciciosActivity.Companion.CLAVE_RUTINA
+import com.progra.losculisueltos.adapter.RutinasAdapter
 import com.progra.losculisueltos.databinding.ActivityRutinasBinding
 import com.progra.losculisueltos.dataclases.EjercicioInfo
 import com.progra.losculisueltos.dataclases.Ejercicios
@@ -21,7 +22,7 @@ import java.util.Locale
 
 class RutinasActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRutinasBinding
-    private val rutinasAdapter by lazy {RutinasAdapter()}
+    private val rutinasAdapter by lazy { RutinasAdapter() }
     private lateinit var preference: SharedPreferences
     lateinit var jsonMap: String
     var cambiosRealizados: Boolean = false
@@ -39,7 +40,11 @@ class RutinasActivity : AppCompatActivity() {
         val editor = preference.edit()
         val historialNuevo: Historial = Historial(
                 fecha = "",
-                rutinas = null
+                rutinas = Rutinas(
+                    nombre="",
+                    ejercicios = mutableMapOf<Int, Boolean>(),
+                    infoEjercio = mutableListOf<EjercicioInfo>()
+                )
                 )
         val gson = Gson()
         val mapaSerializado = gson.toJson(historialNuevo)

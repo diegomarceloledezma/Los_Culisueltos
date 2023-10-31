@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.progra.losculisueltos.adapter.ComidaAdapter
 import com.progra.losculisueltos.databinding.ActivityComidaBinding
 import com.progra.losculisueltos.dataclases.Comidas
+import com.progra.losculisueltos.recyclerviews.MenuComidasActivity
 
 class ComidaActivity : AppCompatActivity() {
     lateinit var binding: ActivityComidaBinding
