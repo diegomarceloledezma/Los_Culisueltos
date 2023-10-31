@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.progra.losculisueltos.MenuEjerciciosActivity.Companion.CLAVE_LISTA_EJERCICIOS
 import com.progra.losculisueltos.adapter.MenuListaEjerciciosAdapter
 import com.progra.losculisueltos.databinding.ActivityRecyclerViewMenuListaEjerciciosBinding
-import com.progra.losculisueltos.dataclases.Comidas
 import com.progra.losculisueltos.dataclases.Ejercicios
+import com.progra.losculisueltos.recyclerviews.RecyclerViewExplicacionEjercicioActivity
 
 class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewMenuListaEjerciciosBinding

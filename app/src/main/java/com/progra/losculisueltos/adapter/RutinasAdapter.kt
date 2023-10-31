@@ -1,10 +1,9 @@
-package com.progra.losculisueltos
+package com.progra.losculisueltos.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.progra.losculisueltos.databinding.RutinaItemBinding
 import com.progra.losculisueltos.dataclases.Rutinas
 

@@ -1,4 +1,4 @@
-package com.progra.losculisueltos
+package com.progra.losculisueltos.recyclerviews
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

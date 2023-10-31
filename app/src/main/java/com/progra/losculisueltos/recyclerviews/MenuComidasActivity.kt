@@ -1,13 +1,13 @@
-package com.progra.losculisueltos
+package com.progra.losculisueltos.recyclerviews
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.progra.losculisueltos.ComidaIndividualActivity.Companion.CLAVE_COMIDA
+import com.progra.losculisueltos.ComidaActivity
+import com.progra.losculisueltos.recyclerviews.ComidaIndividualActivity.Companion.CLAVE_COMIDA
 import com.progra.losculisueltos.adapter.MenuComidasAdapter
 import com.progra.losculisueltos.databinding.ActivityMenuComidasBinding
-import com.progra.losculisueltos.databinding.ActivityRutinasBinding
 import com.progra.losculisueltos.dataclases.Comidas
 
 class MenuComidasActivity : AppCompatActivity() {
