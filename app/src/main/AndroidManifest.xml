@@ -18,10 +18,10 @@
             android:name=".SeleccionEjerciciosActivity"
             android:exported="false"/>
         <activity
-            android:name=".MenuComidasActivity"
+            android:name=".recyclerviews.MenuComidasActivity"
             android:exported="false" />
         <activity
-            android:name=".ComidaIndividualActivity"
+            android:name=".recyclerviews.ComidaIndividualActivity"
             android:exported="false" />
         <activity
             android:name=".RutinaEjerciciosActivity"
@@ -40,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".RecyclerViewMenuListaEjerciciosActivity"
-            android:exported="true"/>
+            android:exported="false"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -58,6 +58,14 @@
         <activity
             android:name=".MenuActivity"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogInActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,17 +73,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LogInActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewExplicacionEjercicioActivity"
+            android:name=".recyclerviews.RecyclerViewExplicacionEjercicioActivity"
             android:exported="false" />
+        <activity
+            android:name=".recyclerviews.HistorialActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".recyclerviews.HistorialEjerciciosActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

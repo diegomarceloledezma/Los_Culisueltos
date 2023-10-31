@@ -21,6 +21,14 @@ class MenuEjerciciosActivity : AppCompatActivity() {
         binding = ActivityMenuEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.abdominalesMenu.setOnClickListener {
             val intent: Intent = Intent(context, RecyclerViewMenuListaEjerciciosActivity::class.java)
             val arrayList = ArrayList(ejercicioAbdominal)

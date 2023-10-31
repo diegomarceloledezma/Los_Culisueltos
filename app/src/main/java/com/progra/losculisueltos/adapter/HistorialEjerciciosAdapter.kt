@@ -7,22 +7,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.progra.losculisueltos.databinding.EjercicioRutinaItemBinding
 import com.progra.losculisueltos.databinding.ItemHistorialBinding
 import com.progra.losculisueltos.databinding.ItemHistorialEjerciciosBinding
+import com.progra.losculisueltos.dataclases.EjercicioInfo
 import com.progra.losculisueltos.dataclases.Ejercicios
 import com.progra.losculisueltos.dataclases.Historial
 
 class HistorialEjerciciosAdapter: RecyclerView.Adapter<HistorialEjerciciosAdapter.HistorialEjerciciosAdapterViewHolder>(){
 
     private var context: Context? = null
-    private val listaHistorialEjercicos = mutableListOf<Historial>()
+    private val listaHistorialEjercicos = mutableListOf<EjercicioInfo>()
 
 
     interface OnItemClickListener {
-        fun onItemClick(historial: Historial)
+        fun onItemClick(historial: EjercicioInfo)
     }
 
-    private var onItemClickListener: ((Historial) -> Unit)? = null
+    private var onItemClickListener: ((EjercicioInfo) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Historial) -> Unit) {
+    fun setOnItemClickListener(listener: (EjercicioInfo) -> Unit) {
         onItemClickListener = listener
     }
 
@@ -50,19 +51,22 @@ class HistorialEjerciciosAdapter: RecyclerView.Adapter<HistorialEjerciciosAdapte
     override fun getItemCount(): Int = listaHistorialEjercicos.size
     inner class HistorialEjerciciosAdapterViewHolder(private val binding: ItemHistorialEjerciciosBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun binding(data: Historial) {
-            binding.nameEjer.text = data.fecha
+        fun binding(data: EjercicioInfo) {
+            binding.nameEjer.text = data.ejercicio.nombre
+            binding.pesoEjer.text = data.peso.toString()
+            binding.repEjer.text = data.repes.toString()
+            binding.serEjer.text = data.series.toString()
 
         }
 
-        fun setupItemClickListener(data: Historial) {
+        fun setupItemClickListener(data: EjercicioInfo) {
             binding.root.setOnClickListener {
                 onItemClickListener?.invoke(data)
             }
         }
     }
 
-    fun addHistorial2(nuevaListaEjerciciosHistorial: List<Historial>) {
+    fun addHistorial2(nuevaListaEjerciciosHistorial: List<EjercicioInfo>) {
         listaHistorialEjercicos.clear()
         listaHistorialEjercicos.addAll(nuevaListaEjerciciosHistorial)
     }

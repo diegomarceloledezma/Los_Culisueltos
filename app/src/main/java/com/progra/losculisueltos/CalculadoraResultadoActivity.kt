@@ -17,6 +17,10 @@ class CalculadoraResultadoActivity : AppCompatActivity() {
         setContentView(binding.root)
         val resultado : Int= intent.getIntExtra(CLAVE_INT,0)
 
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+
         binding.perderPeso.text="Consumir entre ${resultado-500} - ${resultado-400} calorias para poder bajar de peso y actividad fisica constante"
         binding.ganarMusculo1.text="Consumir entre ${resultado+300} - ${resultado+400} calorias para poder bajar de peso y actividad fisica constante"
         binding.ganarFuerza.text="Consumir entre ${resultado+100} - ${resultado+200} calorias para poder bajar de peso y actividad fisica constante"
@@ -25,8 +29,14 @@ class CalculadoraResultadoActivity : AppCompatActivity() {
         binding.volverComidas.setOnClickListener {
             val intent: Intent = Intent(context, ComidaActivity::class.java)
             startActivity(intent)
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
         }
     }
+
     companion object{
         val CLAVE_INT = "clave_int"
     }

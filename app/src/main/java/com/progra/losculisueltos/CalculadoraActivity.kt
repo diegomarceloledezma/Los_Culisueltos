@@ -6,16 +6,25 @@ import android.widget.ArrayAdapter;
 import android.os.Bundle
 import android.widget.Toast
 import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.widget.AdapterView
 import android.widget.AutoCompleteTextView
 import androidx.core.content.ContextCompat
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.progra.losculisueltos.CalculadoraResultadoActivity.Companion.CLAVE_INT
+import com.progra.losculisueltos.SignUpActivity.Companion.USUARIO_CLAVE
 import com.progra.losculisueltos.databinding.ActivityCalculadoraBinding
+import com.progra.losculisueltos.dataclases.Usuario
 import java.util.Date
 import java.util.Calendar
 class CalculadoraActivity : AppCompatActivity() {
     lateinit var binding: ActivityCalculadoraBinding
     val context: Context = this
+    private lateinit var preference: SharedPreferences
+    lateinit var jsonMap: String
+    lateinit var usuarioDatos: Usuario
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCalculadoraBinding.inflate(layoutInflater)
@@ -36,6 +45,9 @@ class CalculadoraActivity : AppCompatActivity() {
             opcion=i
 
         }
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
 
         binding.masculino1.setOnClickListener {
             genero = 1
@@ -46,6 +58,10 @@ class CalculadoraActivity : AppCompatActivity() {
             genero = 2
             binding.femenino1.backgroundTintList = ContextCompat.getColorStateList(this, R.color.cyan)
             binding.masculino1.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
         }
 
         binding.calcularCal.setOnClickListener {
@@ -70,31 +86,30 @@ class CalculadoraActivity : AppCompatActivity() {
                     tmb = (10.0 * peso) + (6.25*estatura) - (5.0*edad) + 161.0
                 }
 
-               /* val auth = Firebase.auth
-                val user = auth.currentUser
-
-                if (user != null) {
-                    val nuevaDiaDivididoPorDiasDelMes = diaDivididoPorDiasDelMes
-
-                    val db = FirebaseFirestore.getInstance()
-                    val userDocumentRef = db.collection("usuarios").document(user.uid)
-
-                    userDocumentRef.get().addOnSuccessListener { documentSnapshot ->
-                        if (documentSnapshot.exists()) {
-                            val usuario = documentSnapshot.toObject(Usuario::class.java)
-                            val nuevaListaPesos = actualizarListaPesos(usuario?.pesos, peso, nuevaDiaDivididoPorDiasDelMes, nombreDelMes, 15)
-
-                            userDocumentRef.update("pesos", nuevaListaPesos)
-                        }
-                    }
-                }*/
 
                 tmb *= mul[opcion]
+
+                preference = PreferenceManager.getDefaultSharedPreferences(this)
+                jsonMap = preference.getString(USUARIO_CLAVE, null)?: ""
+
+                if (jsonMap != "") {
+                    usuarioDatos= Gson().fromJson(jsonMap, object : TypeToken<Usuario>() {}.type)
+                }
+
+                usuarioDatos.pesos.add(peso.toDouble())
+                preference = PreferenceManager.getDefaultSharedPreferences(this)
+                val editor = preference.edit()
+
+                val gson1 = Gson()
+                val userSerializado = gson1.toJson(usuarioDatos)
+                editor.putString(USUARIO_CLAVE, userSerializado)
+                editor.putBoolean("cambiosRealizadosHistorial", false)
+                editor.apply()
                 val numeroInt: Int = tmb.toInt()
                 val intent: Intent = Intent(context, CalculadoraResultadoActivity::class.java)
                 intent.putExtra(CLAVE_INT,numeroInt)
                 startActivity(intent)
-
+                finish()
             } else {
                 val mensaje = "LLena todos los espacios"
                 val duracion = Toast.LENGTH_SHORT
@@ -105,28 +120,6 @@ class CalculadoraActivity : AppCompatActivity() {
         }
     }
 
-    /*private fun actualizarListaPesos(
-        pesos: List<PesosInfo>?,
-        nuevoPeso: Int,
-        nuevaFecha: Double,
-        nombreDelMes: String,
-        maxSize: Int
-    ): List<PesosInfo> {
-        val listaPesos = mutableListOf<PesosInfo>()
 
-        listaPesos.add(PesosInfo(nombreDelMes, nuevaFecha, nuevoPeso))
 
-        pesos?.forEach {
-            listaPesos.add(it)
-        }
-        if (listaPesos.size > maxSize) {
-            listaPesos.removeAt(0)
-        }
-
-        return listaPesos
-    }
-    private fun obtenerNombreDelMes(mes: Int): String {
-        val meses = arrayOf("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
-        return meses[mes]
-    }*/
 }

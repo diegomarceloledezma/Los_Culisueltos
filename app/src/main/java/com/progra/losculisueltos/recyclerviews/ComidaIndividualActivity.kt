@@ -1,9 +1,11 @@
 package com.progra.losculisueltos.recyclerviews
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.progra.losculisueltos.PerfilActivity
 import com.progra.losculisueltos.adapter.ComidaAdapter
 import com.progra.losculisueltos.databinding.ActivityComidaIndividualBinding
 import com.progra.losculisueltos.dataclases.Comidas
@@ -19,6 +21,13 @@ class ComidaIndividualActivity : AppCompatActivity() {
         setContentView(binding.root)
         val comida : Comidas = intent.getSerializableExtra(CLAVE_COMIDA) as Comidas
         iniciarRecycleViewDesayuno(comida)
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun iniciarRecycleViewDesayuno(comida: Comidas) {

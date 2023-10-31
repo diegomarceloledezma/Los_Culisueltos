@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.progra.losculisueltos.ComidaActivity
+import com.progra.losculisueltos.PerfilActivity
 import com.progra.losculisueltos.recyclerviews.ComidaIndividualActivity.Companion.CLAVE_COMIDA
 import com.progra.losculisueltos.adapter.MenuComidasAdapter
 import com.progra.losculisueltos.databinding.ActivityMenuComidasBinding
@@ -19,6 +20,13 @@ class MenuComidasActivity : AppCompatActivity() {
         setContentView(binding.root)
         val comidas: List<Comidas> = intent.getSerializableExtra(ComidaActivity.CLAVE_LISTA) as List<Comidas>
         iniciarRecyclerView(comidas)
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun iniciarRecyclerView(comidas: List<Comidas>) {
         menuComidasAdapter.addComidas(comidas)

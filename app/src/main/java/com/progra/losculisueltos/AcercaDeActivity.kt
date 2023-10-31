@@ -1,5 +1,6 @@
 package com.progra.losculisueltos
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.commit
@@ -18,7 +19,13 @@ class AcercaDeActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
-        setContentView(R.layout.activity_acerca_de)
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

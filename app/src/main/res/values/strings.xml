@@ -67,4 +67,6 @@
     <string name="descripcion_ejercicio">DESCRIPCION</string>
     <string name="Ingredientes">Ingredientes</string>
     <string name="Preparación">Preparación</string>
+    <string name="acerca_de">Acerca De</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
 </resources>

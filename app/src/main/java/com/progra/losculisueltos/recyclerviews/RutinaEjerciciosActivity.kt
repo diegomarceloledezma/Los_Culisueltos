@@ -46,6 +46,13 @@ class RutinaEjerciciosActivity : AppCompatActivity() {
         val rutina: Rutinas = intent.getSerializableExtra(CLAVE_RUTINA) as Rutinas
 
         binding.rutinaNombre.text = Editable.Factory.getInstance().newEditable(rutina.nombre)
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(context, PerfilActivity::class.java)
+            startActivity(intent)
+        }
         binding.addRutina.setOnClickListener {
             val intent = Intent(this, SeleccionEjerciciosActivity::class.java)
             startActivity(intent)
@@ -109,8 +116,10 @@ class RutinaEjerciciosActivity : AppCompatActivity() {
 
                     val calendar = Calendar.getInstance()
                     val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale.getDefault())
+                    val fechaFormateada = dateFormat.format(calendar.time)
+
                     val historialNuevo: Historial = Historial(
-                        fecha = "$dateFormat.format(calendar.time)",
+                        fecha = fechaFormateada,
                         rutinas = rutina
                     )
                     val gson = Gson()

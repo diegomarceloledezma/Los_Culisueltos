@@ -18,7 +18,15 @@ class RecyclerViewMenuListaEjerciciosActivity : AppCompatActivity() {
         binding = ActivityRecyclerViewMenuListaEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val ejercicios: List<Ejercicios> = intent.getSerializableExtra(CLAVE_LISTA_EJERCICIOS) as List<Ejercicios>
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
         iniciarRecyclerView(ejercicios)
+
     }
     private fun iniciarRecyclerView(ejercicios: List<Ejercicios>) {
 

@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.view.View
 import android.widget.Toast
 import com.google.gson.reflect.TypeToken
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,7 @@ import com.progra.losculisueltos.dataclases.Ejercicios
 
 class SeleccionEjerciciosActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySeleccionEjerciciosBinding
-    private val seleccionEjereciciosAdapter by lazy{ SeleccionEjereciciosAdapter() }
+    private val seleccionEjereciciosAdapter by lazy { SeleccionEjereciciosAdapter() }
     val ejerciciosBase = ListaDeEjerciciosProvider()
     val ejercicioPierna = ejerciciosBase.listaPiernas
     val ejercicioPecho = ejerciciosBase.listaPecho
@@ -38,9 +39,10 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         binding = ActivitySeleccionEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         preference = PreferenceManager.getDefaultSharedPreferences(this)
-        jsonMap = preference.getString(RutinaEjerciciosActivity.CLAVE_EJERCICIOS, null)?: ""
+        jsonMap = preference.getString(RutinaEjerciciosActivity.CLAVE_EJERCICIOS, null) ?: ""
         if (jsonMap != "") {
-            mapaEjercicios= Gson().fromJson(jsonMap, object : TypeToken<Map<Int, Boolean>>() {}.type)
+            mapaEjercicios =
+                Gson().fromJson(jsonMap, object : TypeToken<Map<Int, Boolean>>() {}.type)
         }
         iniciarRecyclerViewPiernas(ejercicioPierna)
         iniciarRecyclerViewPecho(ejercicioPecho)
@@ -48,6 +50,52 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         iniciarRecyclerViewBrazo(ejercicioBrazo)
         iniciarRecyclerViewHombro(ejercicioHombros)
         iniciarRecyclerViewAbdominal(ejercicioAbdominal)
+
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.piernasMenu.setOnClickListener {
+            if (binding.piernasRecycler.visibility == View.VISIBLE)
+                binding.piernasRecycler.visibility = View.GONE
+            else
+                binding.piernasRecycler.visibility = View.VISIBLE
+        }
+        binding.pechoMenu.setOnClickListener {
+            if (binding.pechoRecycler.visibility == View.VISIBLE)
+                binding.pechoRecycler.visibility = View.GONE
+            else
+                binding.pechoRecycler.visibility = View.VISIBLE
+        }
+        binding.hombrosMenu.setOnClickListener {
+            if (binding.hombroRecycler.visibility == View.VISIBLE)
+                binding.hombroRecycler.visibility = View.GONE
+            else
+                binding.hombroRecycler.visibility = View.VISIBLE
+        }
+        binding.brazosMenu.setOnClickListener {
+            if (binding.brazosRecycler.visibility == View.VISIBLE)
+                binding.brazosRecycler.visibility = View.GONE
+            else
+                binding.brazosRecycler.visibility = View.VISIBLE
+        }
+        binding.espaldaMenu.setOnClickListener {
+            if (binding.espaldaRecycler.visibility == View.VISIBLE)
+                binding.espaldaRecycler.visibility = View.GONE
+            else
+                binding.espaldaRecycler.visibility = View.VISIBLE
+        }
+        binding.abdominalesMenu.setOnClickListener {
+            if (binding.abdominalesRecycler.visibility == View.VISIBLE)
+                binding.abdominalesRecycler.visibility = View.GONE
+            else
+                binding.abdominalesRecycler.visibility = View.VISIBLE
+        }
+
 
         binding.guardarEjercicios.setOnClickListener {
             val gson = Gson()
@@ -83,6 +131,7 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         }
         adapterPiernas.notifyDataSetChanged()
     }
+
     private fun iniciarRecyclerViewPecho(ejercicios: List<Ejercicios>) {
 
         adapterPecho.addListaEjercicios(ejercicios)
@@ -101,6 +150,7 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         }
         adapterPecho.notifyDataSetChanged()
     }
+
     private fun iniciarRecyclerViewEspalda(ejercicios: List<Ejercicios>) {
 
         adapterEspalda.addListaEjercicios(ejercicios)
@@ -119,6 +169,7 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         }
         adapterEspalda.notifyDataSetChanged()
     }
+
     private fun iniciarRecyclerViewAbdominal(ejercicios: List<Ejercicios>) {
 
         adapterAbdominales.addListaEjercicios(ejercicios)
@@ -137,6 +188,7 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         }
         adapterAbdominales.notifyDataSetChanged()
     }
+
     private fun iniciarRecyclerViewBrazo(ejercicios: List<Ejercicios>) {
 
         adapterBrazos.addListaEjercicios(ejercicios)
@@ -156,6 +208,7 @@ class SeleccionEjerciciosActivity : AppCompatActivity() {
         }
         adapterBrazos.notifyDataSetChanged()
     }
+
     private fun iniciarRecyclerViewHombro(ejercicios: List<Ejercicios>) {
 
         adapterHombros.addListaEjercicios(ejercicios)

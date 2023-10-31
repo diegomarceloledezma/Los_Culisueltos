@@ -1,8 +1,10 @@
 package com.progra.losculisueltos.recyclerviews
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.progra.losculisueltos.PerfilActivity
 import com.progra.losculisueltos.adapter.ExplicacionEjercicioAdapter
 import com.progra.losculisueltos.databinding.ActivityRecyclerViewExplicacionEjercicioBinding
 import com.progra.losculisueltos.dataclases.Ejercicios
@@ -15,7 +17,13 @@ class RecyclerViewExplicacionEjercicioActivity : AppCompatActivity() {
         binding = ActivityRecyclerViewExplicacionEjercicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val ejercicios : Ejercicios = intent.getSerializableExtra(CLAVE_EJERCICIO) as Ejercicios
-
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
 
         iniciarRecyclerView(ejercicios)
     }

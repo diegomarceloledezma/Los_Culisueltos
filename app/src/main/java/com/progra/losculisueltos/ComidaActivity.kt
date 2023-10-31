@@ -18,6 +18,9 @@ class ComidaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityComidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
 
         binding.cardViewCalculadoraCalorica.setOnClickListener {
             val intent: Intent = Intent(context, CalculadoraActivity::class.java)

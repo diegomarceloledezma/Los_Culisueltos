@@ -10,6 +10,7 @@ import com.google.gson.Gson
 import com.progra.losculisueltos.databinding.ActivityMenuBinding
 import com.progra.losculisueltos.dataclases.Historial
 import com.progra.losculisueltos.dataclases.Rutinas
+import com.progra.losculisueltos.recyclerviews.HistorialActivity
 
 
 class MenuActivity : AppCompatActivity() {
@@ -20,17 +21,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        preference = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = preference.edit()
-        var listHistorial: List<Historial> = mutableListOf()
-        var listRutinas: List<Rutinas> = mutableListOf()
-        val gson = Gson()
-        val listaSerializado = gson.toJson(listHistorial)
-        val listaSerializadoR = gson.toJson(listRutinas)
-        editor.putString(CLAVE_HISTORIAL_LISTA, listaSerializado)
-        editor.apply()
-        editor.putString(CLAVE_RUTINAS_LISTA, listaSerializadoR)
-        editor.apply()
+
         binding.nutricion.setOnClickListener {
             val intent = Intent(this, ComidaActivity::class.java)
             startActivity(intent)
@@ -43,7 +34,18 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this,RutinasActivity::class.java)
             startActivity(intent)
         }
-
+        binding.historial.setOnClickListener {
+            val intent = Intent(this,HistorialActivity::class.java)
+            startActivity(intent)
+        }
+        binding.acercaDe.setOnClickListener {
+            val intent = Intent(this,AcercaDeActivity::class.java)
+            startActivity(intent)
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
     }
     companion object{
         val CLAVE_HISTORIAL_LISTA= "lista_historial"

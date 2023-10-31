@@ -1,8 +1,10 @@
 package com.progra.losculisueltos
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.Firebase
@@ -12,17 +14,22 @@ import com.progra.losculisueltos.databinding.ActivitySignUpBinding
 import com.progra.losculisueltos.dataclases.Rutinas
 import com.progra.losculisueltos.dataclases.Usuario
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
 import com.progra.losculisueltos.dataclases.PesosInfo
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var preference: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+
+
+
         binding.crearCuenta.setOnClickListener {
             clickCrearCuenta(binding.correoEdit.text.toString(),binding.contraEdit.text.toString())
         }
@@ -57,20 +64,19 @@ class SignUpActivity : AppCompatActivity() {
 
                     if (uid != null) {
                         val nuevoUsuario = Usuario(
-                            id = uid,
                             nombre = binding.nombreEdit.text.toString(),
                             nombreUsuario = binding.userEdit.text.toString(),
-                            correo = email,
-                            password = "",
-                            historial = emptyList<Rutinas>(),
-                            rutinas = emptyList<Rutinas>(),
-                            pesos = emptyList<PesosInfo>()
+                            pesos = mutableListOf<Double>()
                         )
-
-                        guardarUsuarioEnFirestore(uid, nuevoUsuario)
-
-                        val intent = Intent(this, LogInActivity::class.java)
-                        startActivity(intent)
+                        preference = PreferenceManager.getDefaultSharedPreferences(this)
+                        val editor = preference.edit()
+                        val gson = Gson()
+                        val usuarioSerializado = gson.toJson(nuevoUsuario)
+                        editor.putString(USUARIO_CLAVE, usuarioSerializado)
+                        editor.apply()
+                        val auth1 = FirebaseAuth.getInstance()
+                        auth1.signOut()
+                        finish()
                     }
                 } else {
                     val error = task.exception
@@ -83,16 +89,7 @@ class SignUpActivity : AppCompatActivity() {
         return email.matches(emailPattern.toRegex())
     }
 
-    fun guardarUsuarioEnFirestore(uid: String, usuario: Usuario) {
-        val db = FirebaseFirestore.getInstance()
-
-        val usuarioRef = db.collection("usuarios").document(uid)
-
-        usuarioRef.set(usuario)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Cuenta Creada Correctamente", Toast.LENGTH_SHORT).show()
-            }
-
+    companion object{
+        val USUARIO_CLAVE ="usuario_clave"
     }
-
 }

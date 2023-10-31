@@ -10,24 +10,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.progra.losculisueltos.RutinaEjerciciosActivity.Companion.CLAVE_RUTINA
-import com.progra.losculisueltos.adapter.RutinasAdapter
 import com.progra.losculisueltos.databinding.ActivityRutinasBinding
 import com.progra.losculisueltos.dataclases.EjercicioInfo
 import com.progra.losculisueltos.dataclases.Ejercicios
 import com.progra.losculisueltos.dataclases.Historial
 import com.progra.losculisueltos.dataclases.Rutinas
+import com.progra.losculisueltos.adapter.RutinasAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class RutinasActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRutinasBinding
-    private val rutinasAdapter by lazy { RutinasAdapter() }
+    private val rutinasAdapter by lazy {RutinasAdapter()}
     private lateinit var preference: SharedPreferences
     lateinit var jsonMap: String
     var cambiosRealizados: Boolean = false
     var listHistorial: MutableList<Historial> = mutableListOf()
-    val listRutinas = mutableListOf<Rutinas>()
+    var listRutinas = mutableListOf<Rutinas>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRutinasBinding.inflate(layoutInflater)
@@ -37,15 +37,23 @@ class RutinasActivity : AppCompatActivity() {
         if (jsonMap != "") {
             listHistorial= Gson().fromJson(jsonMap, object : TypeToken<List<Historial>>() {}.type)
         }
+        jsonMap = preference.getString(MenuActivity.CLAVE_RUTINAS_LISTA, null)?: ""
+        if (jsonMap != "") {
+            listRutinas= Gson().fromJson(jsonMap, object : TypeToken<List<Rutinas>>() {}.type)
+        }
+        binding.buttonUser.setOnClickListener {
+            val intent: Intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        binding.buttonMenu.setOnClickListener {
+            finish()
+        }
+
         val editor = preference.edit()
         val historialNuevo: Historial = Historial(
-                fecha = "",
-                rutinas = Rutinas(
-                    nombre="",
-                    ejercicios = mutableMapOf<Int, Boolean>(),
-                    infoEjercio = mutableListOf<EjercicioInfo>()
-                )
-                )
+            fecha = "",
+            rutinas = null
+        )
         val gson = Gson()
         val mapaSerializado = gson.toJson(historialNuevo)
         editor.putString(CLAVE_HISTORIAL, mapaSerializado)
@@ -91,16 +99,12 @@ class RutinasActivity : AppCompatActivity() {
                 listRutinas.add(rutinaNuevo)
             }
 
+
             val editor = preference.edit()
 
             val gson1 = Gson()
             val listSerializado = gson1.toJson(listRutinas)
             editor.putString(MenuActivity.CLAVE_RUTINAS_LISTA, listSerializado)
-
-
-
-
-
 
             jsonMap = preference.getString(CLAVE_HISTORIAL, null)?: ""
             if (jsonMap != "") {
@@ -111,6 +115,7 @@ class RutinasActivity : AppCompatActivity() {
             val gson = Gson()
             val mapaSerializado = gson.toJson(listHistorial)
             editor.putString(MenuActivity.CLAVE_HISTORIAL_LISTA, mapaSerializado)
+
             editor.putBoolean("cambiosRealizadosHistorial", true)
             editor.apply()
             Toast.makeText(this, "Se realizaron los cambios.", Toast.LENGTH_SHORT).show()
