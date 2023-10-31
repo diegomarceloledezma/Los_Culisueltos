@@ -42,6 +42,10 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this,AcercaDeActivity::class.java)
             startActivity(intent)
         }
+        binding.acercaDeLogo.setOnClickListener {
+            val intent = Intent(this,AcercaDeActivity::class.java)
+            startActivity(intent)
+        }
         binding.buttonUser.setOnClickListener {
             val intent: Intent = Intent(this, PerfilActivity::class.java)
             startActivity(intent)

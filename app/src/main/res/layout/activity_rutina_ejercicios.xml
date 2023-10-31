@@ -49,24 +49,8 @@
         android:layout_marginTop="8dp"
         />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="50dp"
-        >
 
-        <TextView
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:background="@color/azul_calro"
-            android:padding="16dp"
-            android:text="@string/ini_rutina"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
 
-    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -85,6 +69,47 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:background="@color/white"
+                    >
+                    <TextView
+                        android:id="@+id/name_ejer"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ini_rutina"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/rep_ejer"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@string/repes"
+                        android:background="@null"
+                        />
+
+                    <TextView
+                        android:id="@+id/ser_ejer"
+
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@string/series"
+                        android:background="@null"
+                        />
+
+                    <TextView
+                        android:id="@+id/peso_ejer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="@string/pes"
+                        android:textSize="16sp" />
+                </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rutinas_recycler"
                     android:layout_width="match_parent"
