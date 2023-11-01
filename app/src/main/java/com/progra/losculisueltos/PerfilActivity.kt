@@ -148,7 +148,7 @@ class PerfilActivity : AppCompatActivity() {
             val gson1 = Gson()
             val userSerializado = gson1.toJson(usuarioDatos)
             editor.putString(uid, userSerializado)
-            editor.putBoolean("cambiosRealizadosHistorial", false)
+            editor.putBoolean("cambiosRealizadosUser", false)
             editor.apply()
             val auth = FirebaseAuth.getInstance()
             val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
