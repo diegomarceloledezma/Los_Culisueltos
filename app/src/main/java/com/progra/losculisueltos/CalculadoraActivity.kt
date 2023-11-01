@@ -11,6 +11,7 @@ import android.preference.PreferenceManager
 import android.widget.AdapterView
 import android.widget.AutoCompleteTextView
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.progra.losculisueltos.CalculadoraResultadoActivity.Companion.CLAVE_INT
@@ -90,7 +91,10 @@ class CalculadoraActivity : AppCompatActivity() {
                 tmb *= mul[opcion]
 
                 preference = PreferenceManager.getDefaultSharedPreferences(this)
-                jsonMap = preference.getString(USUARIO_CLAVE, null)?: ""
+                val auth = FirebaseAuth.getInstance()
+                val user = auth.currentUser
+                val uid = user?.uid
+                jsonMap = preference.getString(uid, null)?: ""
 
                 if (jsonMap != "") {
                     usuarioDatos= Gson().fromJson(jsonMap, object : TypeToken<Usuario>() {}.type)
@@ -99,11 +103,11 @@ class CalculadoraActivity : AppCompatActivity() {
                 usuarioDatos.pesos.add(peso.toDouble())
                 preference = PreferenceManager.getDefaultSharedPreferences(this)
                 val editor = preference.edit()
-
                 val gson1 = Gson()
+
                 val userSerializado = gson1.toJson(usuarioDatos)
-                editor.putString(USUARIO_CLAVE, userSerializado)
-                editor.putBoolean("cambiosRealizadosHistorial", false)
+                editor.putString(uid, userSerializado)
+                editor.putBoolean("cambiosRealizadosUser", false)
                 editor.apply()
                 val numeroInt: Int = tmb.toInt()
                 val intent: Intent = Intent(context, CalculadoraResultadoActivity::class.java)

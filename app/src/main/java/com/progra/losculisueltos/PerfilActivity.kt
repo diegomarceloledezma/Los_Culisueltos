@@ -114,7 +114,6 @@ class PerfilActivity : AppCompatActivity() {
                 binding.userEdit.visibility = View.GONE
                 binding.userText.text = binding.userEdit.text.toString()
                 val drawable = resources.getDrawable(R.drawable.edit_lapiz)
-                usuarioDatos.nombre = binding.nombreEdit.text.toString()
                 usuarioDatos.nombreUsuario = binding.userEdit.text.toString()
                 binding.userBoton.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
                 binding.userEdit.isEnabled = false
@@ -137,6 +136,7 @@ class PerfilActivity : AppCompatActivity() {
                 binding.nombreEdit.visibility = View.GONE
                 binding.nombreText.text = binding.nombreEdit.text.toString()
                 val drawable = resources.getDrawable(R.drawable.edit_lapiz)
+                usuarioDatos.nombre = binding.nombreEdit.text.toString()
                 binding.nombreBoton.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
                 binding.nombreEdit.isEnabled = false
             }
@@ -144,7 +144,6 @@ class PerfilActivity : AppCompatActivity() {
         binding.buttonCerrar.setOnClickListener {
             preference = PreferenceManager.getDefaultSharedPreferences(this)
             val editor = preference.edit()
-
             val gson1 = Gson()
             val userSerializado = gson1.toJson(usuarioDatos)
             editor.putString(uid, userSerializado)
