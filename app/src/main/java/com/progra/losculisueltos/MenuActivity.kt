@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.progra.losculisueltos.databinding.ActivityMenuBinding
 import com.progra.losculisueltos.dataclases.Historial
@@ -21,7 +22,6 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.nutricion.setOnClickListener {
             val intent = Intent(this, ComidaActivity::class.java)
             startActivity(intent)

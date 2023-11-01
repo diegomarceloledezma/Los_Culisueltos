@@ -72,7 +72,7 @@ class SignUpActivity : AppCompatActivity() {
                         val editor = preference.edit()
                         val gson = Gson()
                         val usuarioSerializado = gson.toJson(nuevoUsuario)
-                        editor.putString(USUARIO_CLAVE, usuarioSerializado)
+                        editor.putString(uid, usuarioSerializado)
                         editor.apply()
                         val auth1 = FirebaseAuth.getInstance()
                         auth1.signOut()
