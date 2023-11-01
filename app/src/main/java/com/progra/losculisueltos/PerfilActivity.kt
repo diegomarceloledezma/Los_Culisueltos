@@ -26,7 +26,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.firestore.FieldValue
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.progra.losculisueltos.SignUpActivity.Companion.USUARIO_CLAVE
 import com.progra.losculisueltos.dataclases.Historial
 import com.progra.losculisueltos.dataclases.Rutinas
 import com.progra.losculisueltos.dataclases.Usuario
@@ -42,13 +41,21 @@ class PerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        val uid = user?.uid
+        if(uid != null){
+            preference = PreferenceManager.getDefaultSharedPreferences(this)
+            jsonMap = preference.getString(uid, null)?: ""
 
-        preference = PreferenceManager.getDefaultSharedPreferences(this)
-        jsonMap = preference.getString(USUARIO_CLAVE, null)?: ""
-
-        if (jsonMap != "") {
-            usuarioDatos= Gson().fromJson(jsonMap, object : TypeToken<Usuario>() {}.type)
+            if (jsonMap != "") {
+                usuarioDatos= Gson().fromJson(jsonMap, object : TypeToken<Usuario>() {}.type)
+            }
         }
+        else{
+            auth.signOut()
+        }
+
         if(usuarioDatos!=null){
             binding.nombreText.text = usuarioDatos.nombre
             binding.userText.text = usuarioDatos.nombreUsuario
@@ -86,7 +93,7 @@ class PerfilActivity : AppCompatActivity() {
 
             val gson1 = Gson()
             val userSerializado = gson1.toJson(usuarioDatos)
-            editor.putString(USUARIO_CLAVE, userSerializado)
+            editor.putString(uid, userSerializado)
             editor.putBoolean("cambiosRealizadosHistorial", false)
             editor.apply()
             finish()
@@ -140,7 +147,7 @@ class PerfilActivity : AppCompatActivity() {
 
             val gson1 = Gson()
             val userSerializado = gson1.toJson(usuarioDatos)
-            editor.putString(USUARIO_CLAVE, userSerializado)
+            editor.putString(uid, userSerializado)
             editor.putBoolean("cambiosRealizadosHistorial", false)
             editor.apply()
             val auth = FirebaseAuth.getInstance()
